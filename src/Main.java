@@ -35,7 +35,7 @@ public class Main {
             archivo.close();
 
         } catch (FileNotFoundException e) {
-            System.err.println("No se logor identificar el archivo 'datos.txt'");
+            System.err.println("No se logro identificar el archivo 'datos.txt'");
         }
     }
 }
