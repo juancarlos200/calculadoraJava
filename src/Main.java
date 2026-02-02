@@ -8,7 +8,7 @@ public class Main {
         Calculadora calculadora = new CalculadoraPostfix();
 
         try {
-            Scanner archivo = new Scanner(new File("datos.txt"));
+            Scanner archivo = new Scanner(new File("datos(1).txt"));
             int numeroLinea = 1;
 
             System.out.println("--- Calculadora ---\n");

@@ -1,18 +1,19 @@
 public class CalculadoraPostfix implements Calculadora {
 
+//Guardar Numeros en una pila
     private Pila<Integer> pila;
-
+//Constructor que cuando se crea calculadora se crea una pila de 0
     public CalculadoraPostfix() {
         pila = new VectorPila<>();
     }
-
-    private boolean esOperador(String componente) {
+// Verifica si el componente leido es un operador o no y si es valido 
+    private boolean Operador(String componente) {
         return componente.equals("+") || componente.equals("-") ||
                 componente.equals("*") || componente.equals("/") ||
                 componente.equals("%");
     }
-
-    private boolean esNumero(String componente) {
+//Transformacion de texto a numero = string a int
+    private boolean Numero(String componente) {
         try {
             Integer.parseInt(componente);
             return true;
@@ -20,8 +21,8 @@ public class CalculadoraPostfix implements Calculadora {
             return false;
         }
     }
-
-    private int realizarOperacion(int a, int b, String operador) {
+// realiza la opreacion segun el operador
+    private int operar(int a, int b, String operador) {
         if (operador.equals("+")) {
             return a + b;
         } else if (operador.equals("-")) {
@@ -30,12 +31,12 @@ public class CalculadoraPostfix implements Calculadora {
             return a * b;
         } else if (operador.equals("/")) {
             if (b == 0) {
-                throw new IllegalArgumentException("No se puede dividir entre cero");
+                throw new IllegalArgumentException("No es posible realizar divisiones entre cero");
             }
             return a / b;
         } else if (operador.equals("%")) {
             if (b == 0) {
-                throw new IllegalArgumentException("No se puede hacer módulo por cero");
+                throw new IllegalArgumentException("No se puede hacer un reciduo por cero");
             }
             return a % b;
         } else {
@@ -48,25 +49,25 @@ public class CalculadoraPostfix implements Calculadora {
         String[] componentes = expresion.split(" ");
 
         for (String componente : componentes) {
-            if (esNumero(componente)) {
+            if (Numero(componente)) {
                 pila.push(Integer.parseInt(componente));
-            } else if (esOperador(componente)) {
+            } else if (Operador(componente)) {
                 if (pila.size() < 2) {
-                    throw new IllegalArgumentException("Operandos insuficientes");
+                    throw new IllegalArgumentException("numeros insuficientes");
                 }
                 int b = pila.pop();
                 int a = pila.pop();
-                int resultado = realizarOperacion(a, b, componente);
+                int resultado = operar(a, b, componente);
                 pila.push(resultado);
             } else {
                 throw new IllegalArgumentException(
-                        "Carácter inválido en la expresión: " + componente);
+                        "elemento no es numero ni operador en la expresión: " + componente);
             }
         }
 
         if (pila.size() != 1) {
             throw new IllegalArgumentException(
-                    "Expresión postfix mal formada");
+                    "Expresión mal formada");
         }
 
         return pila.pop();
