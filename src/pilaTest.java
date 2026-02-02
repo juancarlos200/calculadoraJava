@@ -20,6 +20,6 @@ public class pilaTest {
         pila.push(numero);
         assertEquals(numero, pila.peek()); // El tope debe ser el mismo número
         assertEquals(numero, pila.pop());  // Debe salir el mismo número q se inserto y este lo elimina de la pila
-        assertTrue(pila.isEmpty());        // Después de sacar, queda vacía la pila
+        assertTrue(pila.empty());        // Después de sacar, queda vacía la pila
     }
 }
