@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class VectorPila<T> implements Pila<T> {
+public class VPila<T> implements Pila<T> {
 
     ArrayList<T> elementos = new ArrayList<>();
 

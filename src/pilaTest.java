@@ -10,7 +10,7 @@ public class pilaTest {
 // Se crea una pila nueva cada vez q se prueba para que no se interrumpan los procesos de prueba
     @BeforeEach
     void setUp() {
-        pila = new VectorPila<>();
+        pila = new VPila<>();
     }
 // prueba q se usara con los valores que hay en la lista de ints
     @ParameterizedTest

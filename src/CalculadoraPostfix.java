@@ -4,7 +4,7 @@ public class CalculadoraPostfix implements Calculadora {
     private Pila<Integer> pila;
 //Constructor que cuando se crea calculadora se crea una pila de 0
     public CalculadoraPostfix() {
-        pila = new VectorPila<>();
+        pila = new VPila<>();
     }
 // Verifica si el componente leido es un operador o no y si es valido 
     private boolean Operador(String componente) {
