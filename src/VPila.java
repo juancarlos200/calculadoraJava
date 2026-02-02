@@ -23,7 +23,7 @@ public class VPila<T> implements Pila<T> {
     }
 // ver si la pila esta vacia
     @Override
-    public boolean isEmpty() {
+    public boolean empty() {
         if (elementos.size() == 0) {
             return true;
         } else {

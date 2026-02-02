@@ -7,7 +7,7 @@ interface Pila<T> {
 //Elemento del tope sin borrarlo 
     T peek();
 //Pila vacia 
-    boolean isEmpty();
+    boolean empty();
 //Dice la cantidad de elementos en una pila
     int size();
 }
